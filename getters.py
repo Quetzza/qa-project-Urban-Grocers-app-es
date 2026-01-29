@@ -8,6 +8,14 @@ def get_kit_body(name):
 
     return current_body
 
+def get_kit_no_body():
+
+    curren_body = data.kit_body.copy()
+
+    curren_body.pop("name")
+
+    return curren_body
+
 def get_headers():
 
     current_headers = data.headers.copy()
