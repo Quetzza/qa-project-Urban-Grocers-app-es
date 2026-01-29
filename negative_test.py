@@ -71,7 +71,7 @@ def negative_assert_no_key_name():
 
     # assert kit_response.json()["code"] == 400
 
-    # assert kit_response.json()["message"] == "El nombre debe contener sólo letras latino, un espacio y un guión. De 2 a 15 caracteres"
+    # assert kit_response.json()["message"] == "No se han aprobado todos los parámetros requeridos"
 
 def negative_assert_different_type(name):
 
@@ -85,7 +85,7 @@ def negative_assert_different_type(name):
 
     assert user_response.json()["authToken"] != "" # False
 
-    kit_body = getters.get_kit_body # obtiene  { "name" : name }
+    kit_body = getters.get_kit_body(name) # obtiene  { "name" : name }
 
     headers_authToken_body = getters.get_headers_authToken(user_response.json()["authToken"])
 
