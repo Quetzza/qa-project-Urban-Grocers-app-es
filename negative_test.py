@@ -13,7 +13,7 @@ def negative_assert_characters_is_less_than_the_lower_limit(name):
 
     assert user_response.json()["authToken"] != "" # False
 
-    kit_body = getters.get_kit_body(name)
+    kit_body = getters.get_kit_body(name) # obtiene: {"name": name}
 
     headers_authToken_body = getters.get_headers_authToken(user_response.json()["authToken"])
 
@@ -37,7 +37,7 @@ def negative_assert_characters_is_greater_than_the_upper_limit(name):
 
     assert user_response.json()["authToken"] != "" # False
 
-    kit_body = getters.get_kit_body(name)
+    kit_body = getters.get_kit_body(name) # obtiene: {"name": name}
 
     headers_authToken_body = getters.get_headers_authToken(user_response.json()["authToken"])
 
@@ -49,7 +49,7 @@ def negative_assert_characters_is_greater_than_the_upper_limit(name):
 
     # assert kit_response.json()["message"] == "El nombre debe contener sólo letras latino, un espacio y un guión. De 2 a 15 caracteres"
 
-def negative_assert_no_key_name(name):
+def negative_assert_no_key_name():
 
     user_body = getters.get_user_body()
 
@@ -61,7 +61,7 @@ def negative_assert_no_key_name(name):
 
     assert user_response.json()["authToken"] != "" # False
 
-    kit_body = getters.get_kit_body(name)
+    kit_body = getters.get_kit_no_body() # obtiene una lista vacía { }
 
     headers_authToken_body = getters.get_headers_authToken(user_response.json()["authToken"])
 

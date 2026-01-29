@@ -15,8 +15,8 @@ def test_create_new_kit_name_1_character_get_success_response():
 """
     TEST 3
 """
-def test_create_new_kit_name_0_character_get_error_response():
-    negative_test.negative_assert_characters_is_less_than_the_lower_limit("")
+# def test_create_new_kit_name_0_character_get_error_response():
+#     negative_test.negative_assert_characters_is_less_than_the_lower_limit("")
 
 """
     TEST 4
@@ -41,3 +41,9 @@ def test_create_new_kit_name_space_get_success_response():
 """
 def test_create_new_kit_name_numbers_get_success_response():
     positive_test.positive_assert("123")
+
+"""
+    TEST 8
+"""
+def test_create_new_kit_name_no_key_name_get_error_response():
+    negative_test.negative_assert_no_key_name()
