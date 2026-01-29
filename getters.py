@@ -53,8 +53,8 @@ def get_response_new_user():
 
 def get_response_new_kit(name):
 
-    return sender_stand_request.post_new_kit(get_kit_body(name), get_headers_authToken())
+    return sender_stand_request.post_new_client_kit(get_kit_body(name), get_headers_authToken())
 
 def get_response_new_kit_no_keys():
 
-    return sender_stand_request.post_new_kit(get_kit_no_body(), get_headers_authToken())
+    return sender_stand_request.post_new_client_kit(get_kit_no_body(), get_headers_authToken())
