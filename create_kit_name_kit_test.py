@@ -1,5 +1,9 @@
 import positive_test
 import negative_test
+
+def positive_assert(name):
+    print(name)
+
 """
     TEST 1
     
