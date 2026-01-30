@@ -1,6 +1,13 @@
 import sender_stand_request
 import data
-import get_kit_body
+
+def get_kit_body(name):
+
+    current_body = data.kit_body.copy()
+
+    current_body["name"] = name
+
+    return current_body
 
 def positive_assert(kit_body):
     
@@ -23,7 +30,7 @@ def positive_assert(kit_body):
     token["authToken"] = user_response.json()["authToken"]
 
     # Add key Authorization and value in header
-    header["Authorization"] = "Bearer " + kit_body["authToken"]
+    header["Authorization"] = "Bearer " + token["authToken"]
 
     # Create new kit 
     kit_response = sender_stand_request.post_new_kit(kit_body,header)
@@ -55,7 +62,7 @@ def negative_assert_code_400(kit_body):
     token["authToken"] = user_response.json()["authToken"]
 
     # Add key Authorization and value in header
-    header["Authorization"] = "Bearer " + kit_body["authToken"]
+    header["Authorization"] = "Bearer " + token["authToken"]
 
     # Create new kit 
     kit_response = sender_stand_request.post_new_kit(kit_body,header)
