@@ -1,5 +1,75 @@
-import positive_test
-import negative_test
+import sender_stand_request
+import data
+
+def get_kit_body(name):
+
+    current_body = data.kit_body.copy()
+
+    current_body["name"] = name
+
+    return current_body
+
+def positive_assert(kit_body):
+    
+    user_body = data.user_body.copy()
+
+    header = data.headers.copy() 
+    
+    # Create User
+    user_response = sender_stand_request.post_new_user(user_body, header)
+
+    # Code response 201 Created
+    assert user_response.status_code == 201
+
+    # Check user token
+    assert user_response.json()["authToken"] != ""
+
+    token = data.user_authToken.copy()
+
+    # Save token
+    token["authToken"] = user_response.json()["authToken"]
+
+    # Add key Authorization and value in header
+    header["Authorization"] = "Bearer " + token["authToken"]
+
+    # Create new kit 
+    kit_response = sender_stand_request.post_new_kit(kit_body,header)
+
+    # Code response 201 Created
+    assert kit_response.status_code == 201
+
+    # Check field name vs response field name
+    assert kit_response.json()["name"] == kit_body["name"]
+
+def negative_assert_code_400(kit_body):
+    
+    user_body = data.user_body.copy()
+
+    header = data.headers.copy() 
+    
+    # Create User
+    user_response = sender_stand_request.post_new_user(user_body, header)
+
+    # Code response 201 Created
+    assert user_response.status_code == 201
+
+    # Check user token
+    assert user_response.json()["authToken"] != ""
+
+    token = data.user_authToken.copy()
+
+    # Save token
+    token["authToken"] = user_response.json()["authToken"]
+
+    # Add key Authorization and value in header
+    header["Authorization"] = "Bearer " + token["authToken"]
+
+    # Create new kit 
+    kit_response = sender_stand_request.post_new_kit(kit_body,header)
+
+    # Code response 400 Bad Request
+    assert kit_response.status_code == 400
+
 """
     TEST 1
     
@@ -10,7 +80,10 @@ import negative_test
     Código de respuesta: 201 El campo "name" del cuerpo de la respuesta coincide con el campo "name" del cuerpo de la solicitud
 """
 def test_create_new_kit_name_1_character_get_success_response():
-    positive_test.positive_assert("a")
+
+    kit_body = get_kit_body("a")
+    
+    positive_assert(kit_body)
 
 """
     TEST 2
@@ -22,7 +95,10 @@ def test_create_new_kit_name_1_character_get_success_response():
     Código de respuesta: 201 El campo "name" en el cuerpo de la respuesta coincide con el campo "name" en el cuerpo de la solicitud
 """
 def test_create_new_kit_name_511_character_get_success_response():
-    positive_test.positive_assert("AbcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdAbcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabC")
+
+    kit_body = get_kit_body("AbcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdAbcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabC")
+
+    positive_assert(kit_body)
 
 """
     TEST 3
@@ -34,7 +110,10 @@ def test_create_new_kit_name_511_character_get_success_response():
     Código de respuesta: 400
 """
 def test_create_new_kit_name_0_character_get_error_response():
-    negative_test.negative_assert_characters_is_less_than_the_lower_limit("")
+
+    kit_body = get_kit_body("")
+
+    negative_assert_code_400(kit_body)
 
 """
     TEST 4
@@ -46,7 +125,10 @@ def test_create_new_kit_name_0_character_get_error_response():
     Código de respuesta: 400
 """
 def test_create_new_kit_name_512_character_get_error_response():
-    negative_test.negative_assert_characters_is_greater_than_the_upper_limit("AbcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdAbcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcD")
+
+    kit_body = get_kit_body("AbcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdAbcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcD")
+
+    negative_assert_code_400(kit_body)
 
 """
     TEST 5
@@ -58,7 +140,10 @@ def test_create_new_kit_name_512_character_get_error_response():
     Código de respuesta: 201 El campo "name" del cuerpo de la respuesta coincide con el campo "name" del cuerpo de la solicitud
 """
 def test_create_new_kit_name_symbol_get_success_response():
-    positive_test.positive_assert("\"№%@\",")
+   
+   kit_body = get_kit_body("\"№%@\",")
+
+   positive_assert(kit_body)
 
 """
     TEST 6
@@ -70,7 +155,10 @@ def test_create_new_kit_name_symbol_get_success_response():
     Código de respuesta: 201 El campo "name" del cuerpo de la respuesta coincide con el campo "name" del cuerpo de la solicitud
 """
 def test_create_new_kit_name_space_get_success_response():
-    positive_test.positive_assert(" A Aaa ")
+   
+   kit_body = get_kit_body(" A Aaa ")
+
+   positive_assert(kit_body)
 
 """
     TEST 7
@@ -82,7 +170,10 @@ def test_create_new_kit_name_space_get_success_response():
     Código de respuesta: 201 El campo "name" del cuerpo de la respuesta coincide con el campo "name" del cuerpo de la solicitud
 """
 def test_create_new_kit_name_numbers_get_success_response():
-    positive_test.positive_assert("123")
+   
+   kit_body = get_kit_body("123")
+
+   positive_assert(kit_body)
 
 """
     TEST 8
@@ -94,7 +185,12 @@ def test_create_new_kit_name_numbers_get_success_response():
     Código de respuesta: 400
 """
 def test_create_new_kit_name_no_key_name_get_error_response():
-    negative_test.negative_assert_no_key_name()
+    
+    kit_body = data.kit_body.copy()
+
+    kit_body.pop("name")
+
+    negative_assert_code_400(kit_body)
 
 """
     TEST 9
@@ -106,4 +202,7 @@ def test_create_new_kit_name_no_key_name_get_error_response():
     Código de respuesta: 400
 """
 def test_create_new_kit_name_different_types_get_error_response():
-    negative_test.negative_assert_different_type(123)
+
+    kit_body = get_kit_body(123)
+
+    negative_assert_code_400(kit_body)
