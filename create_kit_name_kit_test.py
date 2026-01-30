@@ -1,8 +1,8 @@
-import positive_test
 import negative_test
 import sender_stand_request
 import data
 import get_kit_body
+
 def positive_assert(name):
     
     user_body = data.user_body.copy()
@@ -35,6 +35,36 @@ def positive_assert(name):
 
     # Check field name vs response field name
     assert kit_response.json()["name"] == name
+
+def negative_assert_code_400(name):
+    
+    user_body = data.user_body.copy()
+
+    header = data.headers.copy() 
+    
+    # Create User
+    user_response = sender_stand_request.post_new_user(user_body, header)
+
+    # Code response 201 Created
+    assert user_response.status_code == 201
+
+    # Check user token
+    assert user_response.json()["authToken"] != ""
+
+    token = data.user_authToken.copy()
+
+    # Save token
+    token["authToken"] = user_response.json()["authToken"]
+
+    kit_body = get_kit_body(name)
+
+    header["Authorization"] = "Bearer " + kit_body["authToken"]
+
+    # Create new kit 
+    kit_response = sender_stand_request.post_new_kit(kit_body,header)
+
+    # Code response 400 Bad Request
+    assert kit_response.status_code == 400
 """
     TEST 1
     
