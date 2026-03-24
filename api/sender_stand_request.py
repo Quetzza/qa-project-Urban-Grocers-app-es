@@ -1,4 +1,4 @@
-import configuration
+import config.configuration as configuration
 import requests
 
 
