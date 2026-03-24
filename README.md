@@ -1,22 +1,24 @@
 # 📌 Tabla de Contenido
 
-- Descripción del Proyecto
-- Alcance de Pruebas
-- Stack Tecnológico
-- Arquitectura del Framework
-- Estructura del Proyecto
-- Instalación
-- Ejecución de Pruebas
-- Casos de Prueba Automatizados
-- Buenas Prácticas Implementadas
-- Sección para Recruiters
-- Autor
+- [Descripción del Proyecto](#-descripción-del-proyecto)
+- [Alcance de Pruebas](#-alcance-de-pruebas)
+- [Stack Tecnológico](#️-stack-tecnológico)
+- [Arquitectura del Framework](#️-arquitectura-del-framework)
+- [Estructura del Proyecto](#-estructura-del-proyecto)
+- [Instalación](#️-instalación)
+- [Ejecución de Pruebas](#ejecución-de-pruebas)
+- [Casos de Prueba Automatizados](#-casos-de-prueba-automatizados)
+- [Buenas Prácticas Implementadas](#-buenas-prácticas-implementadas)
+- [Sección para Recruiters](#-sección-para-recruiters)
+- [Autor](#-autor)
 
 # 📖 Descripción del Proyecto
 
 Este proyecto contiene pruebas automatizadas y manuales para la aplicación Urban Grocers, enfocadas en validar flujos críticos del usuario dentro de una plataforma de e-commerce.
 
 El objetivo es asegurar la calidad del sistema mediante pruebas funcionales, validaciones de UI/API y cobertura de escenarios reales de usuario.
+
+[Inicio](#-tabla-de-contenido)
 
 # 🎯 Alcance de Pruebas
 
@@ -27,6 +29,8 @@ El objetivo es asegurar la calidad del sistema mediante pruebas funcionales, val
 - Validación de formularios
 - Pruebas de integración
 
+[Inicio](#-tabla-de-contenido)
+
 # 🛠️ Stack Tecnológico
 
 | Tecnología     | Uso                  |
@@ -35,6 +39,8 @@ El objetivo es asegurar la calidad del sistema mediante pruebas funcionales, val
 | Request 2.32.5 | Solicitudes HTTP     |
 | Pytest 9.0.2   | Framework de testing |
 | Git            | Control de versiones |
+
+[Inicio](#-tabla-de-contenido)
 
 # 🏗️ Arquitectura del Framework
 
@@ -47,6 +53,8 @@ El framework sigue una arquitectura modular basada en:
 
 Esto permite escalabilidad, mantenimiento sencillo y reutilización de código.
 
+[Inicio](#-tabla-de-contenido)
+
 # 📁 Estructura del Proyecto
 
 qa-project-Urban-Grocers-app-es/  
@@ -55,6 +63,8 @@ qa-project-Urban-Grocers-app-es/
 ├──data/  
 ├──helpers/  
 └──test/
+
+[Inicio](#-tabla-de-contenido)
 
 # ⚙️ Instalación
 
@@ -84,6 +94,8 @@ pip install -r requirements.txt
 pytest .\test\create_kit_name_kit_test.py
 ```
 
+[Inicio](#-tabla-de-contenido)
+
 # ✅ Casos de Prueba Automatizados
 
 Vas a crear un kit dentro de un usuario o usuaria particular, no una tarjeta. Para ello, sigue estos pasos:
@@ -104,6 +116,8 @@ Vas a crear un kit dentro de un usuario o usuaria particular, no una tarjeta. Pa
 | 8   | El parámetro no se pasa en la solicitud: kit_body = { }                                                                                             | Código de respuesta: 400                                                                                                        |
 | 9   | Se ha pasado un tipo de parámetro diferente (número): kit_body = { "name": 123 }                                                                    | Código de respuesta: 400                                                                                                        |
 
+[Inicio](#-tabla-de-contenido)
+
 # 🧠 Buenas Prácticas Implementadas
 
 - Separación de responsabilidades
@@ -112,6 +126,8 @@ Vas a crear un kit dentro de un usuario o usuaria particular, no una tarjeta. Pa
 - Naming claro y descriptivo
 - Validaciones robustas de respuesta
 - Reutilización de código
+
+[Inicio](#-tabla-de-contenido)
 
 # 💼 Sección para Recruiters
 
@@ -122,6 +138,8 @@ Este proyecto demuestra:
 - Estructuración de frameworks escalables
 - Buenas prácticas en automatización
 
+[Inicio](#-tabla-de-contenido)
+
 # 👨‍💻 Autor
 
 Axel Arteaga
@@ -129,3 +147,5 @@ Axel Arteaga
 QA Engineer | Automation Tester | Software Quality
 
 LinkedIn: www.linkedin.com/in/axel-arteaga
+
+[Inicio](#-tabla-de-contenido)
