@@ -49,7 +49,7 @@ Esto permite escalabilidad, mantenimiento sencillo y reutilización de código.
 
 # 📁 Estructura del Proyecto
 
-api_stand_tests/  
+qa-project-Urban-Grocers-app-es/  
 ├──api/  
 ├──config/  
 ├──data/  
