@@ -1,9 +1,9 @@
-from data import data 
+from data import kit
 
 def get_kit_body(name):
 
-    current_body = data.kit_body.copy()
+    current_kit = kit.KIT.copy()
 
-    current_body["name"] = name
+    current_kit['name'] = name
 
-    return current_body
+    return current_kit

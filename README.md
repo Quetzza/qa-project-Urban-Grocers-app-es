@@ -59,7 +59,7 @@ Esto permite escalabilidad, mantenimiento sencillo y reutilización de código.
 
 qa-project-Urban-Grocers-app-es/  
 ├──api/  
-├──config/  
+├──assertions/  
 ├──data/  
 ├──helpers/  
 └──test/
@@ -77,9 +77,9 @@ git clone https://github.com/usuario/qa-project-Urban-Grocers-app-es.git
 ### Crear entorno virtual (opcional pero recomendado)
 
 ```bash
-1.python -m venv venv
+1. python -m venv venv
 
-2.venv\Scripts\activate
+2. .venv\Scripts\activate
 ```
 
 ### Instalar dependencias
@@ -91,18 +91,29 @@ pip install -r requirements.txt
 ### Ejecución de Pruebas
 
 ```bash
-pytest .\test\create_kit_name_kit_test.py
+pytest .\test\
 ```
 
 [Inicio](#-tabla-de-contenido)
 
 # ✅ Casos de Prueba Automatizados
 
-Vas a crear un kit dentro de un usuario o usuaria particular, no una tarjeta. Para ello, sigue estos pasos:
+1. Validar las solicitudes para crear un nuevo usuario o usuaria.
+   - Crear un nombre de usuario con 2 caracteres
+   - Crear un nombre de usuario con 15 caracteres
+   - Crear un nombre de usuario con 1 caracteres
+   - Crear un nombre de usuario con 16 caracteres
+   - Crear un nombre de usuario con un espacio en medio
+   - Crear un nombre de usuario con caracteres especiales
+   - Crear un nombre de usuario con caracteres numéricos
+   - Crear un nombre de usuario sin datos
+   - Crear un nombre de usuario con vació
+   - Crear un nombre de usuario con un tipo de dato diferente a string
 
-1. Envía una solicitud para crear un nuevo usuario o usuaria y recuerda el token de autenticación (authToken).
+2. Vas a crear un kit dentro de un usuario o usuaria particular, no una tarjeta. Para ello, sigue estos pasos:
+   - Envía una solicitud para crear un nuevo usuario o usuaria y recuerda el token de autenticación (authToken).
 
-2. Envía una solicitud para crear un kit personal para este usuario o usuaria. Asegúrate de pasar también el encabezado Authorization.
+   - Envía una solicitud para crear un kit personal para este usuario o usuaria. Asegúrate de pasar también el encabezado Authorization.
 
 | №   | Descripción                                                                                                                                         | ER                                                                                                                              |
 | --- | --------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- |
