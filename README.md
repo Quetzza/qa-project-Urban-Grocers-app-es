@@ -1,4 +1,5 @@
-# 📌 Tabla de Contenido
+# 🛒 URBAN GROCERS
+## 📌 Tabla de Contenido
 
 - [Descripción del Proyecto](#-descripción-del-proyecto)
 - [Alcance de Pruebas](#-alcance-de-pruebas)
@@ -12,7 +13,7 @@
 - [Sección para Recruiters](#-sección-para-recruiters)
 - [Autor](#-autor)
 
-# 📖 Descripción del Proyecto
+## 📖 Descripción del Proyecto
 
 Este proyecto contiene pruebas automatizadas y manuales para la aplicación Urban Grocers, enfocadas en validar flujos críticos del usuario dentro de una plataforma de e-commerce.
 
@@ -20,7 +21,7 @@ El objetivo es asegurar la calidad del sistema mediante pruebas funcionales, val
 
 [Inicio](#-tabla-de-contenido)
 
-# 🎯 Alcance de Pruebas
+## 🎯 Alcance de Pruebas
 
 - Pruebas funcionales de frontend
 - Validación de flujo de compra
@@ -31,7 +32,7 @@ El objetivo es asegurar la calidad del sistema mediante pruebas funcionales, val
 
 [Inicio](#-tabla-de-contenido)
 
-# 🛠️ Stack Tecnológico
+## 🛠️ Stack Tecnológico
 
 | Tecnología     | Uso                  |
 | -------------- | -------------------- |
@@ -42,7 +43,7 @@ El objetivo es asegurar la calidad del sistema mediante pruebas funcionales, val
 
 [Inicio](#-tabla-de-contenido)
 
-# 🏗️ Arquitectura del Framework
+## 🏗️ Arquitectura del Framework
 
 El framework sigue una arquitectura modular basada en:
 
@@ -55,7 +56,7 @@ Esto permite escalabilidad, mantenimiento sencillo y reutilización de código.
 
 [Inicio](#-tabla-de-contenido)
 
-# 📁 Estructura del Proyecto
+## 📁 Estructura del Proyecto
 
 qa-project-Urban-Grocers-app-es/  
 ├──api/  
@@ -66,7 +67,7 @@ qa-project-Urban-Grocers-app-es/
 
 [Inicio](#-tabla-de-contenido)
 
-# ⚙️ Instalación
+## ⚙️ Instalación
 
 ### Clonar repositorio
 
@@ -96,7 +97,7 @@ pytest .\test\
 
 [Inicio](#-tabla-de-contenido)
 
-# ✅ Casos de Prueba Automatizados
+## ✅ Casos de Prueba Automatizados
 
 1. Validar las solicitudes para crear un nuevo usuario o usuaria.
    - Crear un nombre de usuario con 2 caracteres
@@ -129,7 +130,7 @@ pytest .\test\
 
 [Inicio](#-tabla-de-contenido)
 
-# 🧠 Buenas Prácticas Implementadas
+## 🧠 Buenas Prácticas Implementadas
 
 - Separación de responsabilidades
 - Uso de datos dinámicos
@@ -140,7 +141,7 @@ pytest .\test\
 
 [Inicio](#-tabla-de-contenido)
 
-# 💼 Sección para Recruiters
+## 💼 Sección para Recruiters
 
 Este proyecto demuestra:
 
@@ -151,7 +152,7 @@ Este proyecto demuestra:
 
 [Inicio](#-tabla-de-contenido)
 
-# 👨‍💻 Autor
+## 👨‍💻 Autor
 
 Axel Arteaga
 
